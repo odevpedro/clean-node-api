@@ -1,5 +1,10 @@
 {
     "compilerOptions": {
+        "strict": true,
+        "noImplicitAny": true,
+        "noImplicitThis": true,     
+        "strictFunctionTypes": true,
+        "strictPropertyInitialization": true,
         "outDir": "./dist",
         "module": "CommonJS",
         "target": "ES2019",
