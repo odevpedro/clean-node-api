@@ -1,0 +1,25 @@
+Explicação do primeiro teste realizado no sistema:
+
+// Descreve um conjunto de testes relacionados ao controlador de cadastro (Signup Controller)
+describe('Signup Controller', () => {
+  // Testa se o controlador retorna 400 se nenhum nome for fornecido
+  test('Should return 400 if no name is provided', () => {
+    // Cria uma instância do SignUpController (sut significa "System Under Test", ou seja, o sistema em teste)
+    const sut = new SignUpController()
+
+    // Cria um objeto que simula uma requisição HTTP, contendo um corpo (body) com email, senha e confirmação de senha
+    const httpRequest = {
+      body: {
+        email: 'any_email',
+        password: 'any_password',
+        passwordConfirmation: 'any_password'
+      }
+    }
+
+    // Chama o método 'handle' do controlador (sut) passando a requisição (httpRequest)
+    const httpResponse = sut.handle(httpRequest)
+
+    // Verifica se o código de status (statusCode) da resposta (httpResponse) é igual a 400
+    expect(httpResponse.statusCode).toBe(400)
+  })
+})
