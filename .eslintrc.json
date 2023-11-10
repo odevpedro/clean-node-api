@@ -4,6 +4,7 @@
         "project": "./tsconfig.json"
     },
     "rules": {
-        "@typescript-eslint/explicit-module-boundary-types": "error"
+        "@typescript-eslint/explicit-module-boundary-types": "error",
+        "@typescript-eslint/strict-boolean-expressions": "off"
     }
 }
