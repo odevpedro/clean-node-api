@@ -4,17 +4,16 @@ import { MissingParamError } from '../errors/missing-param-error'
 import { badRequest } from '../helpers/htttp-helper'
 
 export class SignUpController {
-  handle (httpRequest: HttpRequest): HttpResponse {
-    if (!httpRequest.body.name) {
-      return badRequest(new MissingParamError('name'))
-    } else if (!httpRequest.body.email) {
-      return badRequest(new MissingParamError('email'))
-    } else {
-      // Adiciona um retorno final
-      return {
-        statusCode: 200,
-        body: { success: true }
+  handle(httpRequest: HttpRequest): HttpResponse {
+    const requiredFields = ['name', 'email']
+    for (const field of requiredFields) {
+      if (!httpRequest.body[field]) {
+        return badRequest(new MissingParamError(field))
       }
+    }
+    return {
+      statusCode: 200,
+      body: 'Cadastro realizado com sucesso!'
     }
   }
 }
